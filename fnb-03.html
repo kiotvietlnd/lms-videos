@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiotViet F&B Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        navy: { 900: '#1e3a8a' },
+                        primary: { 600: '#2563eb' },
+                        accent: { 500: '#f97316' } /* Cam F&B */
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'zoom-in': 'zoomIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', sans-serif; background-color: #f8fafc; }
+        .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; }
+        .slide.active { display: flex; opacity: 1; }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        .animate-zoom-in { opacity: 0; } 
+        .slide.active .animate-zoom-in { animation-play-state: running; }
+        /* Ẩn thanh cuộn */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="text-gray-800 relative">
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-20 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div id="slide-container" class="relative z-10 w-full h-full flex items-center justify-center">
+        
+        <div class="slide flex flex-col items-center justify-center text-center p-12">
+            <div class="glass p-16 rounded-3xl animate-zoom-in w-full max-w-4xl">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="h-16 mb-8 mx-auto">
+                <h1 class="text-5xl font-extrabold text-navy-900 mb-6 leading-tight">TỔNG QUAN SẢN PHẨM<br><span class="text-primary-600">KIOTVIET F&B</span></h1>
+                <div class="h-1 w-24 bg-accent-500 mx-auto mb-6 rounded-full"></div>
+                <p class="text-2xl text-gray-600 font-light">Đặc thù ngành hàng & Hệ sinh thái giải pháp</p>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-accent-500 pl-6">MÔ HÌNH KINH DOANH F&B</h2>
+                
+                <div class="grid grid-cols-3 gap-8 flex-1">
+                    <div class="bg-blue-50 rounded-xl p-6 flex flex-col items-center justify-center text-center border border-blue-100 shadow-sm hover:shadow-md transition">
+                        <svg class="w-16 h-16 text-primary-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 1v3M10 1v3M14 1v3"></path></svg>
+                        <h3 class="text-xl font-bold text-navy-900">Cafe, Giải khát</h3>
+                        <p class="text-sm text-gray-500 mt-2">Mô hình phổ biến nhất</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-xl p-6 flex flex-col items-center justify-center text-center border border-orange-100 shadow-sm hover:shadow-md transition">
+                        <svg class="w-16 h-16 text-accent-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        <h3 class="text-xl font-bold text-navy-900">Trà sữa, Trà chanh</h3>
+                        <p class="text-sm text-gray-500 mt-2">Đặc thù in tem nhãn</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-6 flex flex-col items-center justify-center text-center border border-blue-100 shadow-sm hover:shadow-md transition">
+                        <svg class="w-16 h-16 text-primary-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <h3 class="text-xl font-bold text-navy-900">Nhà hàng, Quán ăn</h3>
+                        <p class="text-sm text-gray-500 mt-2">Phục vụ tại bàn</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm hover:shadow-md transition">
+                        <svg class="w-16 h-16 text-gray-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <h3 class="text-xl font-bold text-navy-900">Quán Nhậu, Bar/Pub</h3>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm hover:shadow-md transition">
+                        <svg class="w-16 h-16 text-purple-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                        <h3 class="text-xl font-bold text-navy-900">Karaoke</h3>
+                        <p class="text-sm text-gray-500 mt-2">Tính tiền theo giờ</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm hover:shadow-md transition">
+                        <svg class="w-16 h-16 text-green-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-bold text-navy-900">Bida / Giải trí</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-accent-500 pl-6">ĐẶC THÙ VẬN HÀNH: RETAIL vs F&B</h2>
+                
+                <div class="flex-1 flex flex-col gap-8 justify-center">
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 opacity-60">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="bg-gray-500 text-white px-3 py-1 rounded font-bold">BÁN LẺ</span>
+                            <h3 class="text-xl font-semibold text-gray-700">Quy trình đơn tuyến</h3>
+                        </div>
+                        <div class="flex items-center justify-between px-10">
+                            <div class="text-center"><span class="block text-3xl mb-2">🛒</span>Hàng có sẵn</div>
+                            <div class="h-1 flex-1 bg-gray-300 mx-4"></div>
+                            <div class="text-center"><span class="block text-3xl mb-2">🔫</span>Quét mã</div>
+                            <div class="h-1 flex-1 bg-gray-300 mx-4"></div>
+                            <div class="text-center"><span class="block text-3xl mb-2">💰</span>Thanh toán</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 p-8 rounded-2xl border-2 border-primary-600 shadow-xl transform scale-105">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="bg-primary-600 text-white px-3 py-1 rounded font-bold">F&B</span>
+                            <h3 class="text-2xl font-bold text-navy-900">Quy trình phối hợp (Đa tuyến)</h3>
+                        </div>
+                        <div class="flex items-center justify-between relative z-10">
+                            <div class="text-center w-1/4">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow mb-3 text-3xl">📋</div>
+                                <div class="font-bold text-navy-900">Order tại bàn</div>
+                            </div>
+                            
+                            <svg class="w-8 h-8 text-accent-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                            <div class="text-center w-1/4">
+                                <div class="w-16 h-16 bg-accent-500 text-white rounded-full flex items-center justify-center mx-auto shadow mb-3 text-3xl ring-4 ring-orange-200">🔥</div>
+                                <div class="font-bold text-accent-600">Bếp / Bar</div>
+                                <div class="text-xs text-gray-500 bg-white px-2 py-1 rounded mt-1 inline-block">Chế biến</div>
+                            </div>
+
+                            <svg class="w-8 h-8 text-accent-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                            <div class="text-center w-1/4">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow mb-3 text-3xl">💁</div>
+                                <div class="font-bold text-navy-900">Phục vụ</div>
+                            </div>
+
+                            <svg class="w-8 h-8 text-accent-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                            <div class="text-center w-1/4">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow mb-3 text-3xl">💵</div>
+                                <div class="font-bold text-navy-900">Thanh toán</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-accent-500 pl-6">NỀN TẢNG & ỨNG DỤNG</h2>
+                
+                <div class="grid grid-cols-2 gap-12 flex-1 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-primary-600 mb-6">1. Đa nền tảng thiết bị</h3>
+                        <div class="flex items-center p-4 bg-white rounded-xl shadow-sm">
+                            <svg class="w-10 h-10 text-gray-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span class="text-lg font-medium">Máy tính / Laptop</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
+                            <svg class="w-10 h-10 text-primary-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            <div>
+                                <span class="text-lg font-bold text-navy-900">Máy POS Cảm ứng</span>
+                                <p class="text-sm text-gray-500">1 màn hình hoặc 2 màn hình</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-white rounded-xl shadow-sm">
+                            <svg class="w-10 h-10 text-gray-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            <span class="text-lg font-medium">Điện thoại / Tablet</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 h-full border border-gray-200">
+                        <h3 class="text-2xl font-bold text-accent-500 mb-6">2. Hệ thống App chuyên biệt</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary-600">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="text-xl font-bold text-navy-900">App Nhân viên (F&B)</h4>
+                                    <span class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded">POS</span>
+                                </div>
+                                <ul class="mt-3 space-y-2 text-gray-600">
+                                    <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Order tại bàn</li>
+                                    <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Thanh toán</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-accent-500">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="text-xl font-bold text-navy-900">App Quản lý (F&B)</h4>
+                                    <span class="bg-accent-100 text-accent-700 text-xs px-2 py-1 rounded">Manager</span>
+                                </div>
+                                <ul class="mt-3 space-y-2 text-gray-600">
+                                    <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Xem báo cáo từ xa</li>
+                                    <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Quản lý số liệu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-accent-500 pl-6">THIẾT BỊ PHẦN CỨNG</h2>
+                
+                <div class="grid grid-cols-2 gap-8 flex-1">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-start">
+                        <div class="bg-blue-100 p-4 rounded-lg mr-4 text-3xl">🧾</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900">Máy in hóa đơn</h3>
+                            <p class="text-gray-600 mt-2">In phiếu thanh toán tại quầy thu ngân.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-50 p-6 rounded-xl shadow-md border border-orange-200 flex items-start">
+                        <div class="bg-accent-100 p-4 rounded-lg mr-4 text-3xl">👨‍🍳</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900">Máy in Bếp / Bar</h3>
+                            <p class="text-gray-600 mt-2">Kết nối LAN/Bluetooth. Báo món tức thời vào khu vực chế biến.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-start">
+                        <div class="bg-pink-100 p-4 rounded-lg mr-4 text-3xl">🏷️</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900">Máy in Tem nhãn</h3>
+                            <p class="text-gray-600 mt-2">Dán lên ly cốc. Đặc thù cho mô hình Trà sữa, Cafe.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-start">
+                        <div class="bg-green-100 p-4 rounded-lg mr-4 text-3xl">📲</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900">Màn hình hiển thị QR</h3>
+                            <p class="text-gray-600 mt-2">Hiển thị mã QR động, hỗ trợ khách chuyển khoản chính xác.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-accent-500 pl-6">HỆ SINH THÁI KẾT NỐI</h2>
+                
+                <div class="grid grid-cols-4 gap-6 flex-1 items-stretch">
+                    <div class="flex flex-col bg-white rounded-xl overflow-hidden shadow-lg border-t-4 border-blue-600">
+                        <div class="bg-blue-50 p-6 text-center">
+                            <svg class="w-12 h-12 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <div class="p-6 flex-1">
+                            <h3 class="font-bold text-lg text-navy-900 mb-2">Thanh toán</h3>
+                            <p class="text-sm text-gray-600">Kết nối ngân hàng & VietQR động (Quét ra đúng số tiền).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col bg-white rounded-xl overflow-hidden shadow-lg border-t-4 border-green-500">
+                        <div class="bg-green-50 p-6 text-center">
+                            <svg class="w-12 h-12 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div class="p-6 flex-1">
+                            <h3 class="font-bold text-lg text-navy-900 mb-2">Food Apps</h3>
+                            <p class="text-sm text-gray-600">Đồng bộ đơn hàng GrabFood, ShopeeFood, Gojek...</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col bg-white rounded-xl overflow-hidden shadow-lg border-t-4 border-orange-500">
+                        <div class="bg-orange-50 p-6 text-center">
+                            <svg class="w-12 h-12 mx-auto text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <div class="p-6 flex-1">
+                            <h3 class="font-bold text-lg text-navy-900 mb-2">Pháp lý</h3>
+                            <p class="text-sm text-gray-600">Xuất hóa đơn điện tử (MeInvoice, Viettel) ngay trên máy POS.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col bg-white rounded-xl overflow-hidden shadow-lg border-t-4 border-purple-500">
+                        <div class="bg-purple-50 p-6 text-center">
+                            <svg class="w-12 h-12 mx-auto text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        </div>
+                        <div class="p-6 flex-1">
+                            <h3 class="font-bold text-lg text-navy-900 mb-2">Marketing</h3>
+                            <p class="text-sm text-gray-600">Zalo OA, Facebook Fanpage. Chăm sóc khách hàng tự động.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col items-center justify-center text-center p-12">
+            <div class="glass p-16 rounded-3xl animate-zoom-in">
+                <h1 class="text-5xl font-extrabold text-navy-900 mb-6">CHUYỂN SANG PHẦN THỰC HÀNH</h1>
+                <div class="h-1 w-32 bg-accent-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-2xl text-gray-600">Quy trình 6 bước thiết lập gian hàng</p>
+                <div class="mt-12 text-sm text-gray-400">© KiotViet Training Materials</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function resetAnimations(slide) {
+            const animatedElements = slide.querySelectorAll('.animate-zoom-in');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; 
+                el.style.animation = '';
+            });
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                    resetAnimations(slide);
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => console.log(err));
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+            else if (e.key.toLowerCase() === 'f') toggleFullScreen();
+        });
+
+        if (totalSlides > 0) showSlide(currentSlide);
+    </script>
+</body>
+</html> 
