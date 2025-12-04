@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiotViet Hotel Training (Updated)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        navy: { 900: '#1e3a8a' },
+                        primary: { 500: '#005fcc', 600: '#2563eb' },
+                        hotel: { 400: '#34d399', 500: '#10b981', 600: '#059669', 50: '#ecfdf5', 100: '#d1fae5' }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'zoom-in': 'zoomIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; background-color: #f0fdf4; }
+        .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .slide.active { display: flex; opacity: 1; }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.08);
+            position: relative;
+        }
+        .animate-zoom-in { opacity: 0; } 
+        .slide.active .animate-zoom-in { animation-play-state: running; }
+    </style>
+</head>
+<body class="text-gray-800 relative selection:bg-green-200">
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-20 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div id="slide-container" class="relative z-10 w-full h-full flex items-center justify-center p-8">
+        
+        <div class="slide flex flex-col items-center justify-center text-center p-12">
+            <div class="glass p-16 rounded-3xl animate-zoom-in w-full max-w-5xl border-t-8 border-hotel-500 flex flex-col justify-center h-auto min-h-[50%] items-center">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="h-16 mb-10">
+                <h1 class="text-6xl font-extrabold text-navy-900 mb-6 leading-tight tracking-tight">
+                    ĐÀO TẠO SẢN PHẨM <br> <span class="text-hotel-500">KIOTVIET HOTEL</span>
+                </h1>
+                <div class="w-24 h-1.5 bg-hotel-500 rounded-full mb-8"></div>
+                <p class="text-2xl text-gray-600 font-medium max-w-3xl">
+                    Giải pháp quản lý chuyên biệt cho ngành <span class="font-bold text-hotel-600">Khách sạn, Nhà nghỉ</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-12 pt-20 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="absolute top-8 left-12 h-8 opacity-80">
+                <h2 class="text-4xl font-bold text-navy-900 mb-12 border-l-8 border-hotel-500 pl-6">MỤC TIÊU ĐÀO TẠO</h2>
+                
+                <div class="grid grid-cols-2 gap-10 flex-1 content-center">
+                    <div class="bg-white/70 p-8 rounded-2xl shadow-sm border border-green-100 flex items-start hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mr-6 shrink-0 text-primary-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Hiểu rõ Thị trường & Sản phẩm</h3>
+                            <p class="text-gray-600">Thấu hiểu đặc thù kinh doanh lưu trú (giờ/đêm/ngày).</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/70 p-8 rounded-2xl shadow-sm border border-green-100 flex items-start hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mr-6 shrink-0 text-hotel-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Tư duy Setup dữ liệu</h3>
+                            <p class="text-gray-600">Khởi tạo hạng phòng, bảng giá linh hoạt chính xác.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/70 p-8 rounded-2xl shadow-sm border border-green-100 flex items-start hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mr-6 shrink-0 text-hotel-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Thành thạo quy trình vận hành</h3>
+                            <p class="text-gray-600">Nắm vững nghiệp vụ Check-in, Check-out, Buồng phòng.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/70 p-8 rounded-2xl shadow-sm border border-green-100 flex items-start hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mr-6 shrink-0 text-primary-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Tư vấn giải pháp chuyên sâu</h3>
+                            <p class="text-gray-600">Tự tin chuyển giao công nghệ toàn diện cho khách hàng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-12 pt-20 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="absolute top-8 left-12 h-8 opacity-80">
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-hotel-500 pl-6">PHƯƠNG PHÁP TIẾP CẬN</h2>
+                
+                <div class="flex flex-row items-center gap-12 h-full">
+                    <div class="flex-1">
+                        <div class="bg-gradient-to-br from-hotel-500 to-green-700 p-10 rounded-2xl text-white shadow-xl">
+                            <h3 class="text-4xl font-bold mb-4">Đào tạo Thực chiến</h3>
+                            <p class="text-xl opacity-90 italic">(Hands-on Training)</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 space-y-6">
+                        <div class="flex items-center bg-white/60 p-6 rounded-xl border border-white shadow-sm">
+                            <div class="w-12 h-12 bg-blue-100 text-primary-600 rounded-lg flex items-center justify-center mr-6 shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                            </div>
+                            <span class="text-2xl font-semibold text-gray-700">Đi từ tổng quan đến chi tiết</span>
+                        </div>
+                        <div class="flex items-center bg-white/60 p-6 rounded-xl border border-white shadow-sm">
+                            <div class="w-12 h-12 bg-green-100 text-hotel-600 rounded-lg flex items-center justify-center mr-6 shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                            </div>
+                            <span class="text-2xl font-semibold text-gray-700">Tập trung nghiệp vụ Lễ tân & Buồng phòng</span>
+                        </div>
+                        <div class="flex items-center bg-white/60 p-6 rounded-xl border border-white shadow-sm">
+                            <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mr-6 shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                            </div>
+                            <span class="text-2xl font-semibold text-gray-700">Học đi đôi với hành</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-12 pt-20 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="absolute top-8 left-12 h-8 opacity-80">
+                <h2 class="text-4xl font-bold text-navy-900 mb-16 border-l-8 border-hotel-500 pl-6">LỘ TRÌNH HỌC TẬP</h2>
+                
+                <div class="flex justify-between items-stretch gap-8">
+                    <div class="flex-1 relative group">
+                        <div class="absolute -top-6 left-6 text-6xl font-black text-gray-200 z-0">01</div>
+                        <div class="bg-white/80 border border-green-100 p-8 rounded-2xl shadow-lg relative z-10 h-full hover:scale-105 transition-transform duration-300">
+                            <div class="h-16 w-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-navy-900 mb-3">Tổng quan</h3>
+                            <p class="text-gray-600">Thị trường & Sản phẩm KiotViet Hotel.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 relative group">
+                        <div class="absolute -top-6 left-6 text-6xl font-black text-gray-200 z-0">02</div>
+                        <div class="bg-gradient-to-br from-hotel-500 to-green-600 border border-green-400 p-8 rounded-2xl shadow-xl relative z-10 h-full scale-110 transform">
+                            <div class="absolute -top-4 -right-4 bg-navy-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow">TRỌNG TÂM</div>
+                            <div class="h-16 w-16 bg-white text-hotel-600 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Quy trình vận hành</h3>
+                            <p class="text-green-50">6 bước khởi tạo & vận hành nghiệp vụ chuẩn.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 relative group">
+                        <div class="absolute -top-6 left-6 text-6xl font-black text-gray-200 z-0">03</div>
+                        <div class="bg-white/80 border border-green-100 p-8 rounded-2xl shadow-lg relative z-10 h-full hover:scale-105 transition-transform duration-300">
+                            <div class="h-16 w-16 bg-teal-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-navy-900 mb-3">Mở rộng</h3>
+                            <p class="text-gray-600">Các tính năng nâng cao & Tổng kết khóa học.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-12 pt-20 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="absolute top-8 left-12 h-8 opacity-80">
+                <h2 class="text-4xl font-bold text-navy-900 mb-12 border-l-8 border-hotel-500 pl-6">YÊU CẦU TRƯỚC KHÓA HỌC</h2>
+                
+                <div class="grid grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="bg-white/60 p-6 rounded-xl flex items-center shadow-sm">
+                            <div class="h-14 w-14 bg-gray-200 rounded-lg flex items-center justify-center mr-6">
+                                <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-navy-900">Thiết bị</h4>
+                                <p class="text-gray-600">Máy tính (Laptop/PC) để thao tác Web-based.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 p-6 rounded-xl flex items-center shadow-sm">
+                            <div class="h-14 w-14 bg-blue-100 rounded-lg flex items-center justify-center mr-6">
+                                <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-navy-900">Tài khoản</h4>
+                                <p class="text-gray-600">Đăng ký gian hàng dùng thử ngành <strong>Hotel</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50/80 p-8 rounded-xl border border-blue-200 flex flex-col justify-center">
+                        <h4 class="text-xl font-bold text-navy-900 mb-6 flex items-center">
+                            <span class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">⬇</span>
+                            Cài đặt Ứng dụng
+                        </h4>
+                        <div class="flex items-center bg-white p-5 rounded-lg shadow-sm border-l-4 border-hotel-500">
+                            <img src="https://play-lh.googleusercontent.com/4bny_g0uYD1R3ADGDw4NwKSMl6jMgWGY_xaoBuX_QOCaZnfi4qZLW0_rQ0NXXI9AcG4" class="w-12 h-12 mr-4 rounded-xl object-contain shadow-sm" alt="KiotViet Hotel">
+                            <div>
+                                <span class="text-lg font-bold text-gray-800 block">KiotViet Hotel</span>
+                                <span class="text-sm text-gray-500 font-medium">Dành cho Chủ, Lễ tân & Buồng phòng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col items-center justify-center text-center p-12">
+            <div class="glass p-20 rounded-full w-[600px] h-[600px] flex flex-col items-center justify-center animate-zoom-in text-center border-4 border-white/50">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="h-12 mb-8">
+                <span class="text-2xl font-bold text-hotel-600 tracking-widest uppercase mb-6">Nội dung tiếp theo</span>
+                <h2 class="text-5xl font-extrabold text-navy-900 mb-6 leading-tight whitespace-nowrap">BÀI 1: TỔNG QUAN <br> THỊ TRƯỜNG & SẢN PHẨM</h2>
+                <div class="w-24 h-2 bg-primary-600 rounded-full mb-6"></div>
+            </div>
+        </div>
+
+        <div class="slide items-center justify-center">
+            <div class="text-center animate-zoom-in">
+                <h2 class="text-5xl font-bold text-navy-900 mb-6">CHÚC CÁC BẠN CÓ MỘT KHÓA HỌC HIỆU QUẢ!</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function resetAnimations(slide) {
+            const animatedElements = slide.querySelectorAll('.animate-zoom-in');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; 
+                el.style.animation = '';
+            });
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                    resetAnimations(slide);
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => console.log(err));
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+            else if (e.key.toLowerCase() === 'f') toggleFullScreen();
+        });
+
+        // Initialize
+        if (totalSlides > 0) showSlide(currentSlide);
+    </script>
+</body>
+</html>
