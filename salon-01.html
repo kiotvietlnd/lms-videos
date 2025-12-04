@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KiotViet Beauty Service Training</title>
+    <title>KiotViet Salon Training (Single App)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,8 +11,8 @@
                 extend: {
                     colors: { 
                         navy: { 900: '#1e3a8a' },
-                        primary: { 500: '#005fcc', 600: '#2563eb' }, // KiotViet Blue
-                        salon: { 400: '#f472b6', 500: '#ec4899', 600: '#db2777' }    // Salon Pink
+                        primary: { 500: '#005fcc', 600: '#2563eb' },
+                        salon: { 400: '#f472b6', 500: '#ec4899', 600: '#db2777' }
                     },
                     animation: {
                         'blob': 'blob 10s infinite',
@@ -38,16 +38,13 @@
         html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; background-color: #fdf2f8; }
         .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.5s ease-in-out; }
         .slide.active { display: flex; opacity: 1; }
-        
-        /* Glassmorphism Card Style */
         .glass {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.08); /* Pink shadow */
+            box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.08);
         }
-        
         .animate-zoom-in { opacity: 0; } 
         .slide.active .animate-zoom-in { animation-play-state: running; }
     </style>
@@ -69,7 +66,7 @@
                 </h1>
                 <div class="w-24 h-1.5 bg-salon-500 rounded-full mb-8"></div>
                 <p class="text-2xl text-gray-600 font-medium max-w-3xl">
-                    Giải pháp quản lý chuyên biệt cho ngành <span class="font-bold text-salon-600">Làm đẹp & Spa</span>
+                    Giải pháp quản lý chuyên biệt cho ngành <span class="font-bold text-salon-600">Hair Salon, Spa, Nails - Mi</span>
                 </p>
             </div>
         </div>
@@ -77,36 +74,27 @@
         <div class="slide items-center justify-center">
             <div class="glass p-12 rounded-3xl w-full max-w-6xl h-auto flex flex-col justify-center animate-zoom-in">
                 <h2 class="text-4xl font-bold text-navy-900 mb-12 border-l-8 border-salon-500 pl-6">MỤC TIÊU KHÓA HỌC</h2>
-                
                 <div class="grid grid-cols-3 gap-8">
                     <div class="bg-white/60 p-8 rounded-2xl shadow-sm border border-white flex flex-col items-center text-center hover:shadow-md transition">
                         <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-primary-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Hiểu "Nỗi đau" Khách hàng</h3>
-                        <p class="text-gray-600 leading-relaxed">Nắm bắt khó khăn trong quản lý lịch hẹn, tính lương tua thợ và liệu trình.</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Thấu hiểu Khách hàng</h3>
+                        <p class="text-gray-600 leading-relaxed">Nắm bắt khó khăn trong quản lý lịch hẹn, chia hoa hồng nhân viên.</p>
                     </div>
-
                     <div class="bg-white/60 p-8 rounded-2xl shadow-sm border border-white flex flex-col items-center text-center hover:shadow-md transition">
                         <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mb-6 text-salon-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" /></svg>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Thành thạo nghiệp vụ</h3>
-                        <p class="text-gray-600 leading-relaxed">Làm chủ quy trình Booking, Check-in, Thanh toán và Chăm sóc khách hàng.</p>
+                        <p class="text-gray-600 leading-relaxed">Làm chủ quy trình Booking, Check-in, Thanh toán và CSKH.</p>
                     </div>
-
                     <div class="bg-white/60 p-8 rounded-2xl shadow-sm border border-white flex flex-col items-center text-center hover:shadow-md transition">
                         <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Tư vấn giải pháp</h3>
-                        <p class="text-gray-600 leading-relaxed">Xây dựng kịch bản Demo thuyết phục dựa trên nhu cầu thực tế của Spa.</p>
+                        <p class="text-gray-600 leading-relaxed">Xây dựng kịch bản Demo thuyết phục dựa trên nhu cầu thực tế Spa.</p>
                     </div>
                 </div>
             </div>
@@ -115,7 +103,6 @@
         <div class="slide items-center justify-center">
             <div class="glass p-12 rounded-3xl w-full max-w-6xl h-auto flex flex-col animate-zoom-in">
                 <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-salon-500 pl-6">PHƯƠNG PHÁP TIẾP CẬN</h2>
-                
                 <div class="flex flex-row items-center gap-12">
                     <div class="flex-1">
                         <div class="bg-gradient-to-br from-salon-500 to-purple-600 p-10 rounded-2xl text-white shadow-xl">
@@ -126,27 +113,19 @@
                     <div class="flex-1 space-y-6">
                         <div class="flex items-center bg-white/50 p-6 rounded-xl border border-white shadow-sm">
                             <div class="w-12 h-12 bg-blue-100 text-primary-600 rounded-lg flex items-center justify-center mr-6 shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                             </div>
                             <span class="text-2xl font-semibold text-gray-700">Đi từ tổng quan đến chi tiết</span>
                         </div>
-
                         <div class="flex items-center bg-white/50 p-6 rounded-xl border border-white shadow-sm">
                             <div class="w-12 h-12 bg-pink-100 text-salon-500 rounded-lg flex items-center justify-center mr-6 shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                             </div>
                             <span class="text-2xl font-semibold text-gray-700">Tập trung vào nghiệp vụ cốt lõi</span>
                         </div>
-
                         <div class="flex items-center bg-white/50 p-6 rounded-xl border border-white shadow-sm">
                             <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mr-6 shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
                             </div>
                             <span class="text-2xl font-semibold text-gray-700">Học đi đôi với hành</span>
                         </div>
@@ -157,46 +136,38 @@
 
         <div class="slide items-center justify-center">
             <div class="glass p-12 rounded-3xl w-full max-w-6xl h-auto flex flex-col animate-zoom-in">
-                <h2 class="text-4xl font-bold text-navy-900 mb-16 border-l-8 border-salon-500 pl-6">CẤU TRÚC CHƯƠNG TRÌNH</h2>
+                <h2 class="text-4xl font-bold text-navy-900 mb-10 border-l-8 border-salon-500 pl-6">NỀN TẢNG & ỨNG DỤNG DI ĐỘNG</h2>
                 
-                <div class="flex justify-between items-stretch gap-8">
-                    <div class="flex-1 relative group">
-                        <div class="absolute -top-6 left-6 text-6xl font-black text-gray-200 z-0">01</div>
-                        <div class="bg-white/80 border border-blue-100 p-8 rounded-2xl shadow-lg relative z-10 h-full hover:scale-105 transition-transform duration-300">
-                            <div class="h-16 w-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-navy-900 mb-3">Tổng quan</h3>
-                            <p class="text-gray-600">Thị trường, Khách hàng & Giải pháp KiotViet Salon.</p>
+                <div class="flex flex-col items-center justify-center h-full">
+                    <div class="flex justify-center gap-8 mb-10 w-full">
+                        <div class="bg-white/70 p-6 rounded-2xl shadow-sm text-center flex-1">
+                            <svg class="w-12 h-12 mx-auto text-gray-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <h3 class="font-bold text-lg text-navy-900">PC / Laptop</h3>
+                            <p class="text-sm text-gray-500">Quản trị chuyên sâu</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl shadow-md text-center flex-1 border border-blue-200">
+                            <svg class="w-12 h-12 mx-auto text-primary-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            <h3 class="font-bold text-lg text-navy-900">Máy POS / Tablet</h3>
+                            <p class="text-sm text-gray-500">Thao tác tại quầy</p>
                         </div>
                     </div>
 
-                    <div class="flex-1 relative group">
-                        <div class="absolute -top-6 left-6 text-6xl font-black text-gray-200 z-0">02</div>
-                        <div class="bg-gradient-to-br from-salon-500 to-pink-600 border border-pink-400 p-8 rounded-2xl shadow-xl relative z-10 h-full scale-110">
-                            <div class="absolute -top-4 -right-4 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">TRỌNG TÂM</div>
-                            <div class="h-16 w-16 bg-white text-salon-600 rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                                </svg>
+                    <div class="bg-gradient-to-r from-salon-500 to-purple-600 p-1 rounded-3xl w-full max-w-4xl shadow-xl">
+                        <div class="bg-white p-8 rounded-[22px] flex items-center">
+                            <img src="https://play-lh.googleusercontent.com/GrJVQKCLHcSncYiGn94duvYacqMR023IIkLSvY_3pXh81rYSnuxaJly4N9b2nMVHcp8" class="w-24 h-24 rounded-2xl shadow-lg mr-8" alt="KiotViet Salon App">
+                            
+                            <div class="flex-1">
+                                <h3 class="text-3xl font-extrabold text-navy-900 mb-2">Ứng Dụng KiotViet Salon</h3>
+                                <span class="bg-salon-100 text-salon-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">All-in-One</span>
+                                <p class="text-lg text-gray-600 mt-3 leading-relaxed">
+                                    Giải pháp duy nhất trên điện thoại cho cả <strong>Chủ cửa hàng</strong> và <strong>Nhân viên</strong>.
+                                </p>
+                                <div class="flex gap-4 mt-4 text-sm font-medium text-gray-500">
+                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Quản lý lịch hẹn</span>
+                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Chấm công & Lương</span>
+                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Báo cáo doanh thu</span>
+                                </div>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">Quy trình vận hành</h3>
-                            <p class="text-pink-100">6 bước thiết lập & Vận hành dịch vụ chuẩn.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex-1 relative group">
-                        <div class="absolute -top-6 left-6 text-6xl font-black text-gray-200 z-0">03</div>
-                        <div class="bg-white/80 border border-blue-100 p-8 rounded-2xl shadow-lg relative z-10 h-full hover:scale-105 transition-transform duration-300">
-                            <div class="h-16 w-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-navy-900 mb-3">Hệ sinh thái</h3>
-                            <p class="text-gray-600">Giải pháp Tính năng Phần mềm, Thiết bị phần cứng.</p>
                         </div>
                     </div>
                 </div>
@@ -211,9 +182,7 @@
                     <div class="space-y-6">
                         <div class="bg-white/60 p-6 rounded-xl flex items-center shadow-sm">
                             <div class="h-14 w-14 bg-gray-200 rounded-lg flex items-center justify-center mr-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </div>
                             <div>
                                 <h4 class="text-xl font-bold text-navy-900">Thiết bị</h4>
@@ -223,9 +192,7 @@
 
                         <div class="bg-white/60 p-6 rounded-xl flex items-center shadow-sm">
                             <div class="h-14 w-14 bg-blue-100 rounded-lg flex items-center justify-center mr-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                             </div>
                             <div>
                                 <h4 class="text-xl font-bold text-navy-900">Tài khoản</h4>
@@ -234,19 +201,18 @@
                         </div>
                     </div>
 
-                    <div class="bg-blue-50/80 p-8 rounded-xl border border-blue-200">
+                    <div class="bg-blue-50/80 p-8 rounded-xl border border-blue-200 flex flex-col justify-center">
                         <h4 class="text-xl font-bold text-navy-900 mb-6 flex items-center">
                             <span class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">⬇</span>
                             Cài đặt Ứng dụng
                         </h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-center bg-white p-4 rounded-lg shadow-sm pl-6 border-l-4 border-salon-500">
-                                <span class="text-lg font-medium text-gray-800">KiotViet Nhân viên (Salon)</span>
-                            </li>
-                            <li class="flex items-center bg-white p-4 rounded-lg shadow-sm pl-6 border-l-4 border-primary-600">
-                                <span class="text-lg font-medium text-gray-800">KiotViet Quản lý (Salon)</span>
-                            </li>
-                        </ul>
+                        <div class="flex items-center bg-white p-5 rounded-lg shadow-sm border-l-4 border-salon-500">
+                            <img src="https://play-lh.googleusercontent.com/GrJVQKCLHcSncYiGn94duvYacqMR023IIkLSvY_3pXh81rYSnuxaJly4N9b2nMVHcp8" class="w-10 h-10 mr-4" alt="KiotViet Salon">
+                            <div>
+                                <span class="text-lg font-bold text-gray-800 block">KiotViet Salon</span>
+                                <span class="text-sm text-gray-500">(Dành cho cả Quản lý & Nhân viên)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -318,7 +284,6 @@
             else if (e.key.toLowerCase() === 'f') toggleFullScreen();
         });
 
-        // Initialize
         if (totalSlides > 0) showSlide(currentSlide);
     </script>
 </body>
