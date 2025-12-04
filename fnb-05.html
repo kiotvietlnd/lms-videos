@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giai phap Phan cung F&B v2.1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        navy: { 900: '#1e3a8a', 800: '#1e40af' },
+                        primary: { 600: '#2563eb', 100: '#dbeafe' },
+                        accent: { 500: '#f97316', 600: '#ea580c', 100: '#ffedd5' }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'zoom-in': 'zoomIn 0.5s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Segoe UI', sans-serif; background-color: #f0f9ff; }
+        .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; }
+        .slide.active { display: flex; opacity: 1; }
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+        }
+        .animate-zoom-in { opacity: 0; } 
+        .slide.active .animate-zoom-in { animation-play-state: running; }
+        .device-img { object-fit: contain; transition: transform 0.3s ease; }
+        .device-img:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="text-gray-800 relative">
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-20 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div id="slide-container" class="relative z-10 w-full h-full flex items-center justify-center">
+        
+        <div class="slide flex flex-col items-center justify-center text-center p-12">
+            <div class="glass p-16 rounded-3xl animate-zoom-in w-full max-w-5xl">
+                <img src="https://logo.kiotviet.vn/KiotViet-Logo-Horizontal.svg" alt="KiotViet Logo" class="h-20 mb-10 mx-auto">
+                <h1 class="text-5xl font-extrabold text-navy-900 mb-6 leading-tight">GIẢI PHÁP PHẦN CỨNG<br><span class="text-accent-500">TOÀN DIỆN CHO F&B</span></h1>
+                <div class="h-1 w-32 bg-primary-600 mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-500 font-light">Tổng quan thiết bị & 5 Phương án triển khai chuẩn</p>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-7xl mx-auto p-12 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-2 border-l-8 border-accent-500 pl-6">HỆ THỐNG VẬN HÀNH "KIỀNG 3 CHÂN"</h2>
+                <p class="text-gray-500 ml-8 mb-16">Sự kết hợp hoàn hảo để vận hành ổn định</p>
+
+                <div class="flex-1 flex items-center justify-center gap-6">
+                    
+                    <div class="flex flex-col items-center group w-1/3">
+                        <div class="w-64 h-64 bg-blue-50 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-blue-200 transition-all duration-500 animate-float">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/10/09093625/spdevice-first.png" class="w-40 h-auto object-contain">
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-900 mt-6">THIẾT BỊ PHẦN CỨNG</h3>
+                        <p class="text-gray-500">Máy in, POS, Máy quét...</p>
+                    </div>
+
+                    <div class="text-5xl text-gray-300 font-light">+</div>
+
+                    <div class="flex flex-col items-center group w-1/3">
+                        <div class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-accent-200 transition-all duration-500 animate-float" style="animation-delay: 1s;">
+                            <img src="https://play-lh.googleusercontent.com/JUZVOcNZ76AB4rHaUZPox0A3ysFKYP7cw3uk6BovzY4Y1_O1LugjvPqyjX36sXMwgiE" class="w-40 h-auto object-contain rounded-3xl" alt="KiotViet Management App">
+                        </div>
+                        <h3 class="text-2xl font-bold text-accent-600 mt-6">ỨNG DỤNG KIOTVIET</h3>
+                        <p class="text-gray-500">FnB POS, Manager</p>
+                    </div>
+
+                    <div class="text-5xl text-gray-300 font-light">+</div>
+
+                    <div class="flex flex-col items-center group w-1/3">
+                        <div class="w-64 h-64 bg-gray-100 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-gray-300 transition-all duration-500 animate-float" style="animation-delay: 2s;">
+                            <svg class="w-32 h-32 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-700 mt-6">HẠ TẦNG MẠNG</h3>
+                        <p class="text-gray-500">Internet / LAN / Wi-Fi</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-7xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-8 border-l-8 border-accent-500 pl-6">1. KHU VỰC THU NGÂN (FRONT OFFICE)</h2>
+                
+                <div class="grid grid-cols-12 gap-6 flex-1 h-full">
+                    <div class="col-span-5 bg-white rounded-2xl border border-gray-200 p-6 flex flex-col items-center justify-center shadow-sm relative">
+                        <span class="absolute top-4 left-4 bg-accent-500 text-white px-3 py-1 rounded text-sm font-bold">TRUNG TÂM</span>
+                        <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/10/09093625/spdevice-first.png" class="h-64 object-contain mb-4 device-img">
+                        <h3 class="text-2xl font-bold text-navy-900">Máy POS D68 Dual</h3>
+                        <p class="text-gray-500 text-center px-4 mt-2">Màn hình cảm ứng kép, chuyên nghiệp cho quầy thu ngân.</p>
+                    </div>
+
+                    <div class="col-span-7 grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl border border-gray-100 p-4 flex flex-col items-center justify-center hover:shadow-md transition">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/09/23065800/spdevice-5.png" class="h-24 object-contain mb-2 device-img">
+                            <span class="font-bold text-navy-900">Màn hình QR (KV99)</span>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-100 p-4 flex flex-col items-center justify-center hover:shadow-md transition">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/09/23065751/spdevice-2.png" class="h-24 object-contain mb-2 device-img">
+                            <span class="font-bold text-navy-900">Máy in Bill (KV804)</span>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-100 p-4 flex flex-col items-center justify-center hover:shadow-md transition">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/09/23065757/spdevice-4.png" class="h-24 object-contain mb-2 device-img">
+                            <span class="font-bold text-navy-900">Máy quét (XL-6500A)</span>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-100 p-4 flex flex-col items-center justify-center hover:shadow-md transition">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/09/23065803/spdevice-6.png" class="h-24 object-contain mb-2 device-img">
+                            <span class="font-bold text-navy-900">Ngăn tiền (KV405)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-7xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-8 border-l-8 border-accent-500 pl-6">2. KHU VỰC BẾP & PHA CHẾ</h2>
+                
+                <div class="grid grid-cols-2 gap-10 flex-1">
+                    <div class="bg-orange-50 border border-orange-200 rounded-3xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group hover:shadow-xl transition">
+                        <div class="absolute top-0 right-0 bg-accent-500 text-white px-6 py-2 rounded-bl-xl font-bold shadow-md">BẾP / BAR</div>
+                        <div class="bg-white p-6 rounded-full shadow-inner mb-6 w-64 h-64 flex items-center justify-center">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2024/10/03084424/7-1.png" class="w-full object-contain device-img">
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-900">Máy In Bếp (KV838)</h3>
+                        <div class="mt-4 inline-flex items-center bg-white px-4 py-1 rounded-full border border-gray-200 text-sm font-semibold text-green-600">
+                            <span class="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></span> USB / LAN
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-3xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group hover:shadow-xl transition">
+                        <div class="absolute top-0 right-0 bg-blue-600 text-white px-6 py-2 rounded-bl-xl font-bold shadow-md">TRÀ SỮA</div>
+                        <div class="bg-white p-6 rounded-full shadow-inner mb-6 w-64 h-64 flex items-center justify-center">
+                            <img src="https://cdn-kvweb.kiotviet.vn/kiotviet-website/wp-content/uploads/2025/09/23065754/spdevice-3.png" class="w-full object-contain device-img">
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-900">Máy In Tem (365B)</h3>
+                        <div class="mt-4 inline-flex items-center bg-white px-4 py-1 rounded-full border border-gray-200 text-sm font-semibold text-blue-600">
+                            USB / LAN
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-7xl mx-auto p-10 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-3xl font-bold text-navy-900 mb-8 text-center border-b-2 border-gray-100 pb-4">MÔ HÌNH ORDER TẠI QUẦY</h2>
+                
+                <div class="grid grid-cols-2 gap-8 h-full">
+                    <div class="bg-white rounded-2xl border border-gray-200 p-4 flex flex-col hover:border-blue-400 transition shadow-sm">
+                        <h3 class="text-xl font-bold text-navy-900 mb-2 px-2">PA1: Chỉ dùng Máy tính</h3>
+                        <div class="flex-1 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden p-4">
+                            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdQCPvf4gO1lnTOpx6bTmkPRq8TiqChWjcANVkAzc_942JoQ0cnDpaVkovbp9oQHPUtrStqMgg2w1ht2PeoNy_LZL2bTxBO0qdzb4TEZeL91o_OrE_WeR4wvXblZ3rBHHosJ69fJ2jv7O6LJE57lD65ibNUEsI?key=kyqv5w43o69ogX2RsipIdA" alt="Sơ đồ Phương án 1" class="w-full h-full object-contain hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-accent-200 p-4 flex flex-col hover:border-accent-500 transition shadow-md relative">
+                        <div class="absolute -top-3 -right-3 bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded shadow">KHUYÊN DÙNG</div>
+                        <h3 class="text-xl font-bold text-accent-600 mb-2 px-2">PA2: Chỉ dùng Máy POS</h3>
+                        <div class="flex-1 bg-orange-50 rounded-xl flex items-center justify-center overflow-hidden p-4">
+                            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfS7ZeYBjFIsn-c6k8yYKXgp4p21WjDtI99BRSOid2OZ-M15J5CSECJj0Wt-t-Tb3xMD2uS6PiN9BgkesKJSvBB8qTOLpICwpJxaHXeSLB7QTzZenfTGO-Jici7snZE91OMp51uWEAEI6uqaWr9EgCsns6QSxE?key=kyqv5w43o69ogX2RsipIdA" alt="Sơ đồ Phương án 2" class="w-full h-full object-contain hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-full mx-auto p-8 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-3xl font-bold text-navy-900 mb-6 text-center border-b-2 border-gray-100 pb-4">MÔ HÌNH ORDER TẠI BÀN (NHIỀU THIẾT BỊ)</h2>
+                
+                <div class="grid grid-cols-3 gap-6 flex-1">
+                    <div class="bg-white rounded-2xl border border-gray-200 p-4 flex flex-col hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-navy-900 mb-2 text-center">PA3: Máy tính Trung tâm</h3>
+                        <div class="flex-1 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden p-2">
+                            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdQlC78Ly9Dgq0mv_b5DfMXN2C0ed9kgTQ-NK5BHr2IMr9CzDH7av4JqJnLnSKaJMLZSjGyRC45Ggd0jIA5DDkovXW5-amQ08bi_7xT0HffeQ6Lsw_qYX3AzZjSEcOrOkMtaHXVbvz6mpMuP-1zF840o4rHECY?key=kyqv5w43o69ogX2RsipIdA" alt="Sơ đồ Phương án 3" class="w-full h-full object-contain hover:scale-105 transition">
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border-2 border-accent-100 p-4 flex flex-col hover:border-accent-400 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-accent-600 mb-2 text-center">PA4: Máy POS Trung tâm</h3>
+                        <div class="flex-1 bg-accent-50 rounded-xl flex items-center justify-center overflow-hidden p-2">
+                            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcKKiXmVQKYTvNXtx7ci4XzGD5Qg8wR5gGq_FmLg77xtpaTtuVS_-53qP5qBsIdbqN8miECBpqU-xkSRjfFZw8xBPFPyWuhwNeUsG9NH3UuNZ-1tlsC-T8EgURW4vKPFIDnOanOoB4f9pdAkpVbyCtQAuriokg?key=kyqv5w43o69ogX2RsipIdA" alt="Sơ đồ Phương án 4" class="w-full h-full object-contain hover:scale-105 transition">
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-gray-200 p-4 flex flex-col hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-700 mb-2 text-center">PA5: Chỉ dùng Điện thoại</h3>
+                        <div class="flex-1 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden p-2">
+                            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeCXX5CqrCGQL93eByzRXcbcT2Q7BkV0rFcl9WbJ4Wa5ZZJ4FIQ9n0Mcwk6v1RWI1zWl1gf4_bngIKjcDNdJSXVOr4g5kKZFGwL0_lqqbhtuHhGES_Rgf2iua15KwAyl8RgvI7LRbPt-7o-MWE4BMn9mDnJHQ?key=kyqv5w43o69ogX2RsipIdA" alt="Sơ đồ Phương án 5" class="w-full h-full object-contain hover:scale-105 transition">
+                        </div>
+                        <p class="text-xs text-center text-red-500 mt-2 font-semibold">*Yêu cầu Wi-Fi cực mạnh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col p-12 justify-center">
+            <div class="glass w-full max-w-6xl mx-auto p-12 rounded-3xl h-5/6 flex flex-col animate-zoom-in">
+                <h2 class="text-4xl font-bold text-navy-900 mb-8 border-l-8 border-accent-500 pl-6">BẢNG TỔNG HỢP TƯ VẤN</h2>
+                <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm flex-1">
+                    <table class="w-full h-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-navy-900 text-white">
+                                <th class="p-6 text-xl">NHU CẦU</th>
+                                <th class="p-6 text-xl bg-accent-600">GIẢI PHÁP</th>
+                                <th class="p-6 text-xl">LÝ DO</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 bg-white">
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-6 font-semibold">Tiết kiệm, có sẵn Laptop</td>
+                                <td class="p-6 text-navy-900 font-bold bg-blue-50">👉 MÁY TÍNH (PA1)</td>
+                                <td class="p-6">Tận dụng thiết bị cũ.</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-6 font-semibold">Quán decor đẹp, Sang trọng</td>
+                                <td class="p-6 text-accent-600 font-bold bg-orange-50">👉 MÁY POS (PA2)</td>
+                                <td class="p-6">Thẩm mỹ, gọn gàng, chuyên nghiệp.</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-6 font-semibold">Nhà hàng rộng, Order tại bàn</td>
+                                <td class="p-6 text-navy-900 font-bold bg-blue-50">👉 COMBO: APP + HUB (PA3/4)</td>
+                                <td class="p-6">Đảm bảo đường truyền in ổn định.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-6 font-semibold">Vỉa hè, Hội chợ</td>
+                                <td class="p-6 text-navy-900 font-bold bg-gray-50">👉 ĐIỆN THOẠI (PA5)</td>
+                                <td class="p-6">Linh động, không cần dây mạng.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide flex flex-col items-center justify-center text-center p-12">
+            <div class="glass p-16 rounded-3xl animate-zoom-in max-w-4xl w-full">
+                <h1 class="text-5xl font-extrabold text-navy-900 mb-6">SẴN SÀNG THỰC HÀNH?</h1>
+                <div class="h-1 w-32 bg-accent-500 mx-auto mb-10 rounded-full"></div>
+                <p class="text-2xl text-gray-600 mb-12">Chúng ta đã nắm vững hệ thống thiết bị & sơ đồ đấu nối.</p>
+                <a href="#" class="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-xl font-bold rounded-full shadow-lg hover:bg-accent-500 transition transform hover:scale-105">
+                    <span>XEM HƯỚNG DẪN LẮP ĐẶT</span>
+                    <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function resetAnimations(slide) {
+            const animatedElements = slide.querySelectorAll('.animate-zoom-in, .animate-fade-up');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; 
+                el.style.animation = '';
+            });
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                    resetAnimations(slide);
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => console.log(err));
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+            else if (e.key.toLowerCase() === 'f') toggleFullScreen();
+        });
+
+        if (totalSlides > 0) showSlide(currentSlide);
+    </script>
+</body>
+</html>
